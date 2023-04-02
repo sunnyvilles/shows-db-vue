@@ -1,0 +1,13 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+    --color: darkgoldenrod;
+    --outerSpacing: 10px;
+    --barHeight: 80px;
+    --breakpoint: 600px;
+}
+
+body {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
