@@ -1,12 +1,6 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import Header from './layout/Header.vue'
-
-</script>
-
 <template>
   <div class="container">
-    <Header />
+    <HeaderLayout />
     <main>
       <router-view />
     </main>
@@ -14,9 +8,13 @@ import Header from './layout/Header.vue'
       <h3>@shows-databse</h3>
     </footer>
   </div>
-
-  <RouterView />
 </template>
+
+<script setup>
+import { RouterView } from 'vue-router';
+import HeaderLayout from './layout/HeaderLayout.vue';
+
+</script>
 
 <style scoped lang="scss">
 #app {
@@ -27,11 +25,12 @@ import Header from './layout/Header.vue'
 .container {
   text-align: center;
   background-color: var(--color);
+  padding: 0px;
+  margin: 0px;
 }
 
 .container>* {
   padding: var(--outerSpacing);
-  margin: var(--outerSpacing);
   flex: 1 100%;
 }
 

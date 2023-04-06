@@ -4,7 +4,7 @@
         <div class="scroll-shows">
             <div class="show-section" v-for="show in shows" :key="show.id">
                 <div class="show-section_card" role="button" @click="toDetailView(show)">
-                    <img :src="show?.image?.medium" alt="img" />
+                    <img :src="show?.image?.medium" :alt="`image for ${show.name}`" />
                     <p>
                         <span> {{ show?.name }} </span>
                     </p>
@@ -18,12 +18,12 @@
 import { useRouter } from 'vue-router';
 const router = useRouter();
 
-const props = defineProps({
+defineProps({
     genre: String,
     shows: Array,
 });
 
-const toDetailView = (show) => router.push({ name: 'Detail', params: { id: show?.id } });
+const toDetailView = (show) => router.push({ name: 'detail', params: { id: show?.id } });
 
 </script>
 

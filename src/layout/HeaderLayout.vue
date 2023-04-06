@@ -3,7 +3,7 @@
         <div class="header-items">
             <img src="@/assets/television.svg" alt="Logo" />
             <span>
-                <router-link to="/" v-if="this.$route.name == 'Detail'">Back</router-link>
+                <router-link to="/" v-if="this.$route.name == 'detail'">Back</router-link>
             </span>
         </div>
     </header>
