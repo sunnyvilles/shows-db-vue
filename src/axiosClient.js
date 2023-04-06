@@ -1,7 +1,10 @@
 import axios from 'axios';
 
 const axiosClient = axios.create({
-    baseURL: 'https://api.tvmaze.com'
+    withCredentials: false,
+    headers: {
+        Accept: 'application/json'
+    }
 })
 
 export default axiosClient;

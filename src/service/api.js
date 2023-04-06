@@ -1,29 +1,26 @@
 import axiosClient from '../axiosClient';
 
-const req = async (url, callback) => {
-    await axiosClient
-        .get(url)
-        .catch((error) => {
-            console.log(error);
-        });
-};
-
-
 async function fetchAllShows(pageNo = 1) {
-    const response = await axiosClient.get(`/shows?page=${pageNo}`)
+    const response = await axiosClient.get(`/api/shows?page=${pageNo}`).catch((error) => {
+        console.log(error);
+    });
     return response.data;
 }
 
 async function fetchSearchResults(query) {
     if (query === '') return fetchAllShows();
-    const response = await axiosClient.get(`/search/shows?q=${query}`)
+    const response = await axiosClient.get(`/api/search/shows?q=${query}`).catch((error) => {
+        console.log(error);
+    });
     return response.data.map((result) => result.show);
 }
 
 async function fetchShow(id = 1) {
-    const response = await axiosClient.get(`/${id}`)
+    const response = await axiosClient.get(`/api/shows/${id}`).catch((error) => {
+        console.log(error);
+    });
     return response.data || [];
 }
 
 
-export { fetchAllShows, fetchSearchResults }
+export { fetchAllShows, fetchSearchResults, fetchShow }

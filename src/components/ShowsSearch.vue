@@ -3,7 +3,7 @@
     <h3>Collection of all Tv shows</h3>
     <form @submit.prevent>
       <div class="search">
-        <input type="text" class="search_searchTerm" v-model="searchTerm" s placeholder="Search your favourite show" />
+        <input type="text" class="search_searchTerm" v-model="searchTerm" placeholder="Search your favourite show" />
         <button @click.prevent="" type="submit" class="search_searchButton">
           <img src="@/assets/search.svg" alt="search" />
         </button>
@@ -13,8 +13,9 @@
 </template>
 
 <script setup>
+
 import { fetchSearchResults } from '@/service/api.js';
-import { onMounted, watch, ref } from 'vue';
+import { watch, ref } from 'vue';
 import { useShowsStore } from '@/stores/shows';
 
 const searchTerm = ref('');
@@ -28,16 +29,12 @@ defineProps({
   }
 })
 
-onMounted(async () => {
-  const response = await fetchSearchResults('downtown');
-})
-
 const handleSearch = () => {
   clearTimeout(debounce);
   debounce = setTimeout(async () => {
     let showsList = await fetchSearchResults(searchTerm.value);
     setAllShows(showsList);
-  }, 1000)
+  }, 700)
 }
 
 watch(searchTerm, handleSearch)

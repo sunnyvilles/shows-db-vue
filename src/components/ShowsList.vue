@@ -4,20 +4,17 @@
 </template>
 
 <script setup>
-import ShowsByGenre from "@/components/ShowsByGenre.vue";
+
+import ShowsByGenre from '@/components/ShowsByGenre.vue';
 import { storeToRefs } from 'pinia';
 import { useShowsStore } from "@/stores/shows.js";
-import { onMounted } from "vue";
+import { onMounted } from 'vue';
 import { fetchAllShows } from '@/service/api.js';
 
 const { setAllShows } = useShowsStore();
 
 const showStore = useShowsStore();
 const { allShows } = storeToRefs(showStore);
-
-const getShowsListByGenre = () => {
-  return allShows.value
-};
 
 onMounted(async () => {
   let showsList = await fetchAllShows();

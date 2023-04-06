@@ -13,16 +13,3 @@ export const createCategorizedShows = (showsList) => {
     if (shows.Misc.length === 0) delete shows.Misc;
     return shows;
 };
-
-export function debounce(fn, wait) {
-    let timer;
-    return function (...args) {
-        if (timer) {
-            clearTimeout(timer); // clear any pre-existing timer
-        }
-        const context = this; // get the current context
-        timer = setTimeout(() => {
-            fn.apply(context, args); // call the function if time expires
-        }, wait);
-    }
-}

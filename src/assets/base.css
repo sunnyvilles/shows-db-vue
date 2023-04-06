@@ -3,10 +3,12 @@
     --outerSpacing: 10px;
     --barHeight: 80px;
     --breakpoint: 600px;
+    --white: #ffffff
 }
 
 body {
     font-family: Avenir, Helvetica, Arial, sans-serif;
+    margin: 0px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
